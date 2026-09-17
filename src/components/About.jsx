@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import aboutImage from '../assets/about_section/about_section.png';
+import TiltCard from './ui/TiltCard';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -161,7 +162,7 @@ const About = () => {
         {/* Mobile Intro Text */}
         <h2
           ref={introMobileRef}
-          className="lg:hidden text-center text-[18vw] md:text-[8rem] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-300 to-gray-800 drop-shadow-2xl leading-none mb-10 md:mb-16 font-display"
+          className="lg:hidden text-center text-[18vw] md:text-[8rem] font-black tracking-tighter drop-shadow-2xl leading-none mb-10 md:mb-16 font-display chrome-text"
         >
           Intro
         </h2>
@@ -182,12 +183,16 @@ const About = () => {
           <div className="flex flex-col justify-center space-y-8 z-10 w-full px-4 md:px-0">
             <h2
               ref={introDesktopRef}
-              className="hidden lg:block text-[11rem] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-300 to-gray-800 drop-shadow-2xl leading-none font-display"
+              className="hidden lg:block text-[11rem] font-black tracking-tighter drop-shadow-2xl leading-none font-display chrome-text"
             >
               Intro
             </h2>
             
-            <div className="relative bg-white/5 backdrop-blur-md p-6 md:p-10 rounded-3xl border border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/[0.07] transition-colors duration-300 text-center lg:text-left">
+            <TiltCard
+              maxTilt={6}
+              glowColor="rgba(204, 255, 0, 0.12)"
+              className="p-6 md:p-10 text-center lg:text-left shadow-[0_15px_40px_rgba(0,0,0,0.5)]"
+            >
               <p ref={textRef} className="text-gray-300 text-base md:text-lg lg:text-xl leading-relaxed font-light">
                 {aboutWords.map((wordObj, index) => (
                   <React.Fragment key={index}>
@@ -198,7 +203,7 @@ const About = () => {
                   </React.Fragment>
                 ))}
               </p>
-            </div>
+            </TiltCard>
           </div>
 
         </div>

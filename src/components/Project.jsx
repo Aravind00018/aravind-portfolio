@@ -1,4 +1,6 @@
 import React from 'react';
+import TiltCard from './ui/TiltCard';
+import CinematicButton from './ui/CinematicButton';
 
 const projects = [
   {
@@ -68,11 +70,11 @@ const Project = ({ onCtaClick }) => {
     <div id="project" className="bg-[#050505] w-full text-white pt-10 md:pt-20 pb-24 px-6 md:px-16">
       
       {/* Top Header Section */}
-      <div className="flex flex-col lg:flex-row justify-between items-start w-full z-10 gap-12 lg:gap-0 mb-20 lg:mb-32">
+      <div className="flex flex-col lg:flex-row justify-between items-start w-full z-10 gap-12 lg:gap-0 mb-16 lg:mb-24">
         
         {/* Left Giant Title */}
         <div className="w-full lg:w-7/12 overflow-visible">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-300 to-gray-800 drop-shadow-2xl leading-[0.9] uppercase flex items-center gap-3 whitespace-nowrap font-display">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter chrome-text drop-shadow-2xl leading-[0.9] uppercase flex items-center gap-3 whitespace-nowrap font-display">
             Selected
             <span className="font-light italic text-gray-300 lowercase font-serif pr-4 pt-2 md:pt-4">work</span>
           </h2>
@@ -80,86 +82,97 @@ const Project = ({ onCtaClick }) => {
 
         {/* Right Description */}
         <div className="w-full lg:w-4/12 flex flex-col items-start lg:mt-4">
-          <p className="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-8">
+          <p className="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-6">
             Production-style software systems spanning secure enterprise Spring Boot backends,
             relational database architectures, and deep learning predictive analytics.
           </p>
-          <a
+          <CinematicButton
             href="https://github.com/Aravind00018"
             target="_blank"
             rel="noopener noreferrer"
-            className="cursor-pointer px-6 py-2.5 rounded-full border border-[#ccff00] bg-[#ccff00] text-black font-medium text-xs md:text-sm hover:bg-[#b3e600] hover:border-[#b3e600] transition-colors flex items-center gap-2"
+            variant="primary"
+            className="px-6 py-2.5 text-xs md:text-sm font-bold gap-2"
           >
             Explore GitHub
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
             </svg>
-          </a>
+          </CinematicButton>
         </div>
       </div>
 
-      {/* Projects List - Alternating Layout */}
-      <div className="flex flex-col gap-24 lg:gap-40 w-full">
+      {/* Projects List - Liquid Glass Tilt Cards */}
+      <div className="flex flex-col gap-12 lg:gap-16 w-full">
         {projects.map((proj, idx) => {
           const isEven = idx % 2 === 0;
           return (
-            <div
+            <TiltCard
               key={proj.name}
-              className={`flex flex-col ${
-                isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
-              } items-center justify-between gap-12 lg:gap-16 w-full group`}
+              maxTilt={4}
+              glowColor="rgba(204, 255, 0, 0.14)"
+              className="p-6 md:p-10 lg:p-12 w-full"
             >
-              {/* Image Side */}
-              <div className="w-full lg:w-6/12 overflow-hidden relative aspect-[16/10] bg-[#111] rounded-sm">
-                <img
-                  src={proj.image}
-                  alt={proj.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
-                />
-              </div>
-
-              {/* Text Side */}
-              <div className="w-full lg:w-5/12 flex flex-col items-start">
-                <span className="text-[#ccff00] text-xs md:text-sm font-bold tracking-widest uppercase mb-4">
-                  0{idx + 1} • {proj.category}
-                </span>
-
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter text-white leading-[1.1] uppercase mb-6 font-display">
-                  {proj.title}
-                </h3>
-
-                <p className="text-gray-400 text-sm md:text-base font-light leading-relaxed mb-10">
-                  {proj.description}
-                </p>
-
-                <div className="flex items-center gap-4 flex-wrap">
-                  <a
-                    href={proj.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cursor-pointer px-6 py-2.5 rounded-full border border-[#ccff00] bg-[#ccff00] text-black text-xs md:text-sm font-medium hover:bg-[#b3e600] hover:border-[#b3e600] transition-colors inline-flex items-center gap-2 font-bold"
-                  >
-                    View Details
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                    </svg>
-                  </a>
-
-                  <a
-                    href={proj.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cursor-pointer px-6 py-2.5 rounded-full border border-white/30 text-white text-xs md:text-sm hover:bg-white hover:text-black transition-colors inline-flex items-center gap-2"
-                  >
-                    GitHub
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                    </svg>
-                  </a>
+              <div
+                className={`flex flex-col ${
+                  isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                } items-center justify-between gap-8 lg:gap-14 w-full`}
+              >
+                {/* Image Side */}
+                <div className="w-full lg:w-6/12 overflow-hidden relative aspect-[16/10] bg-[#111] rounded-2xl border border-white/10 shadow-2xl group">
+                  <img
+                    src={proj.image}
+                    alt={proj.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                 </div>
-              </div>
 
-            </div>
+                {/* Text Side */}
+                <div className="w-full lg:w-6/12 flex flex-col items-start">
+                  <span className="text-[#ccff00] text-xs md:text-sm font-mono font-bold tracking-widest uppercase mb-3 inline-flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#ccff00] animate-pulse" />
+                    0{idx + 1} • {proj.category}
+                  </span>
+
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter text-white leading-[1.1] uppercase mb-5 font-display">
+                    {proj.title}
+                  </h3>
+
+                  <p className="text-gray-300 text-sm md:text-base font-light leading-relaxed mb-8">
+                    {proj.description}
+                  </p>
+
+                  <div className="flex items-center gap-4 flex-wrap">
+                    <CinematicButton
+                      href={proj.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="primary"
+                      className="px-6 py-2.5 text-xs md:text-sm font-bold gap-2"
+                    >
+                      View Details
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                      </svg>
+                    </CinematicButton>
+
+                    <CinematicButton
+                      href={proj.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="glass"
+                      className="px-6 py-2.5 text-xs md:text-sm gap-2"
+                    >
+                      GitHub
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                      </svg>
+                    </CinematicButton>
+                  </div>
+                </div>
+
+              </div>
+            </TiltCard>
           );
         })}
       </div>

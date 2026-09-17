@@ -106,6 +106,9 @@ const Hero = ({ onPreloadComplete }) => {
       id="home"
       className="relative min-h-screen flex items-end justify-center bg-black overflow-hidden select-none"
     >
+      {/* Subtle Cinematic Ambient Back-glow behind portrait */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[550px] h-[350px] bg-gradient-to-t from-[#ccff00]/10 via-cyan-500/5 to-transparent rounded-full blur-[110px] pointer-events-none z-0" />
+
       {/* Central Giant Typography Container (Behind Portrait) */}
       <div
         ref={containerRef}
@@ -113,7 +116,7 @@ const Hero = ({ onPreloadComplete }) => {
       >
         <h1
           ref={textRef}
-          className="text-[19vw] sm:text-[17vw] md:text-[13rem] lg:text-[16rem] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-600 leading-none uppercase font-display text-center drop-shadow-2xl whitespace-nowrap"
+          className="text-[19vw] sm:text-[17vw] md:text-[13rem] lg:text-[16rem] font-black tracking-tighter leading-none uppercase font-display text-center drop-shadow-[0_20px_50px_rgba(0,0,0,0.9)] whitespace-nowrap chrome-text"
         >
           {text}
         </h1>

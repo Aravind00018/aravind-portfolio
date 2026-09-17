@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import contactBgVideo from '../assets/contact_assets/contact_bg.mp4';
 import { Download, Send, Loader2, CheckCircle2, AlertCircle, Mail } from 'lucide-react';
+import TiltCard from './ui/TiltCard';
+import CinematicButton from './ui/CinematicButton';
 
 const ContactSection = ({ onDownloadResume }) => {
   const formRef = useRef();
@@ -73,7 +75,7 @@ const ContactSection = ({ onDownloadResume }) => {
         
         {/* Left Side: Contact Info */}
         <div className="w-full lg:w-5/12 flex flex-col justify-start">
-          <h2 className="text-5xl md:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-300 to-gray-800 drop-shadow-2xl mb-12 font-display">
+          <h2 className="text-5xl md:text-6xl font-black tracking-tighter chrome-text drop-shadow-2xl mb-12 font-display">
             Get in touch
           </h2>
 
@@ -125,14 +127,14 @@ const ContactSection = ({ onDownloadResume }) => {
               </a>
 
               {onDownloadResume && (
-                <button
+                <CinematicButton
                   onClick={onDownloadResume}
-                  type="button"
-                  className="flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-[#ccff00] bg-[#ccff00] text-black font-bold text-xs uppercase tracking-wider hover:bg-[#b3e600] transition-colors cursor-pointer ml-auto"
+                  variant="primary"
+                  className="flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold tracking-wider ml-auto"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Resume</span>
-                </button>
+                </CinematicButton>
               )}
             </div>
           </div>
@@ -140,7 +142,11 @@ const ContactSection = ({ onDownloadResume }) => {
 
         {/* Right Side: Message Form */}
         <div className="w-full lg:w-7/12 flex flex-col justify-center">
-          <div className="bg-white/5 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl">
+          <TiltCard
+            maxTilt={5}
+            glowColor="rgba(204, 255, 0, 0.12)"
+            className="p-8 md:p-12 shadow-2xl"
+          >
             <form
               ref={formRef}
               action="https://formsubmit.co/araviaravi2020@gmail.com"
@@ -172,7 +178,7 @@ const ContactSection = ({ onDownloadResume }) => {
                   name="name"
                   required
                   placeholder="Your Name"
-                  className="w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#ccff00] transition-colors text-sm"
+                  className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-3.5 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#ccff00] focus:shadow-[0_0_15px_rgba(204,255,0,0.15)] transition-all text-sm"
                 />
               </div>
 
@@ -185,7 +191,7 @@ const ContactSection = ({ onDownloadResume }) => {
                   name="email"
                   required
                   placeholder="your.email@example.com"
-                  className="w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#ccff00] transition-colors text-sm"
+                  className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-3.5 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#ccff00] focus:shadow-[0_0_15px_rgba(204,255,0,0.15)] transition-all text-sm"
                 />
               </div>
 
@@ -198,7 +204,7 @@ const ContactSection = ({ onDownloadResume }) => {
                   required
                   rows="4"
                   placeholder="How can we collaborate?"
-                  className="w-full bg-black/40 border border-white/15 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#ccff00] transition-colors text-sm resize-none"
+                  className="w-full bg-black/50 border border-white/15 rounded-xl px-4 py-3.5 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#ccff00] focus:shadow-[0_0_15px_rgba(204,255,0,0.15)] transition-all text-sm resize-none"
                 />
               </div>
 
@@ -219,10 +225,11 @@ const ContactSection = ({ onDownloadResume }) => {
                 </div>
               )}
 
-              <button
+              <CinematicButton
                 type="submit"
                 disabled={isSubmitting}
-                className="cursor-pointer w-full py-3.5 rounded-full bg-[#ccff00] hover:bg-[#b3e600] text-black font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(204,255,0,0.3)] disabled:opacity-50"
+                variant="primary"
+                className="w-full py-4 text-xs font-black tracking-widest gap-2 shadow-[0_0_25px_rgba(204,255,0,0.35)]"
               >
                 {isSubmitting ? (
                   <>
@@ -235,7 +242,7 @@ const ContactSection = ({ onDownloadResume }) => {
                     <span>Send Message</span>
                   </>
                 )}
-              </button>
+              </CinematicButton>
 
               <div className="text-center pt-1">
                 <a
@@ -248,7 +255,7 @@ const ContactSection = ({ onDownloadResume }) => {
               </div>
 
             </form>
-          </div>
+          </TiltCard>
         </div>
 
       </div>

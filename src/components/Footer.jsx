@@ -1,5 +1,6 @@
 import React from 'react';
 import footerBg from '../assets/Footer/Footer.png';
+import CinematicButton from './ui/CinematicButton';
 
 const Footer = () => {
   return (
@@ -23,7 +24,7 @@ const Footer = () => {
               <p className="text-gray-400 text-sm mb-2 font-mono">Connect with me</p>
               <a
                 href="mailto:araviaravi2020@gmail.com"
-                className="text-xl md:text-5xl font-medium hover:text-gray-300 transition-colors break-words font-display"
+                className="text-xl md:text-5xl font-medium hover:text-[#ccff00] transition-colors break-words font-display"
               >
                 araviaravi2020@gmail.com
               </a>
@@ -43,12 +44,13 @@ const Footer = () => {
             <p className="text-gray-400 text-sm mb-6 max-w-xs">
               Open for full-time engineering opportunities, microservices architecture, and technical collaborations.
             </p>
-            <a
+            <CinematicButton
               href="#contact"
-              className="bg-white text-black px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors font-bold uppercase tracking-wider"
+              variant="primary"
+              className="px-6 py-3 text-xs md:text-sm font-bold tracking-wider"
             >
               Get in touch
-            </a>
+            </CinematicButton>
           </div>
         </div>
 
@@ -87,7 +89,7 @@ const Footer = () => {
         {/* Huge Text Section */}
         <div className="w-full text-center flex-1 flex items-center justify-center min-h-0 select-none">
           <h1
-            className="text-[14vw] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-800 uppercase font-display"
+            className="text-[14vw] font-black leading-none tracking-tighter chrome-text uppercase font-display select-none"
           >
             ARAVIND
           </h1>
