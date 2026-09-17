@@ -170,16 +170,7 @@ const About = () => {
         {/* Content Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
 
-          {/* Left Column - Aravind's Photo in White Linen Shirt (Prominent Scale) */}
-          <div className="flex justify-center lg:justify-start pl-0 lg:pl-8 xl:pl-12">
-            <img
-              src={aboutImage}
-              alt="Aravind - Full Stack Engineer"
-              className="w-72 sm:w-80 md:w-96 lg:w-[420px] xl:w-[480px] h-auto max-h-[680px] object-contain border-none outline-none select-none drop-shadow-[0_25px_60px_rgba(0,0,0,0.7)]"
-            />
-          </div>
-
-          {/* Right Column - Text Content with Word-by-Word Scroll Highlight */}
+          {/* Left Column - Text Content with Word-by-Word Scroll Highlight */}
           <div className="flex flex-col justify-center space-y-8 z-10 w-full px-4 md:px-0">
             <h2
               ref={introDesktopRef}
@@ -204,6 +195,15 @@ const About = () => {
                 ))}
               </p>
             </TiltCard>
+          </div>
+
+          {/* Right Column - Aravind's Photo in White Linen Shirt (Facing inward towards Intro) */}
+          <div className="flex justify-center lg:justify-end pr-0 lg:pr-8 xl:pr-12">
+            <img
+              src={aboutImage}
+              alt="Aravind - Full Stack Engineer"
+              className="w-72 sm:w-80 md:w-96 lg:w-[420px] xl:w-[480px] h-auto max-h-[680px] object-contain border-none outline-none select-none drop-shadow-[0_25px_60px_rgba(0,0,0,0.7)]"
+            />
           </div>
 
         </div>
